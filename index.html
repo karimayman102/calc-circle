@@ -3,65 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jana is petfect</title>
+    <title>Jana's Appreciation</title>
     <style>
         body {
+            background-color: #f9f3d2;
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
             margin: 0;
+            padding: 0;
+            color: #333;
         }
 
         .container {
             text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
         }
 
         button {
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-size: 20px;
-            background: #ff4081;
+            background-color: #ff9c00;
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             transition: 0.3s;
+            margin-top: 20px;
         }
 
         button:hover {
-            background: #f50057;
+            background-color: #ff7f00;
         }
 
-        .balloon {
-            position: absolute;
+        #message {
+            display: none;
             font-size: 24px;
             font-weight: bold;
-            color: white;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px 20px;
-            border-radius: 20px;
-            animation: floatUp 3s ease-in-out forwards;
-            opacity: 0;
+            color: #2e2e2e;
+            background: #ffe6b3;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            transition: opacity 1s ease-in-out;
         }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-300px);
-                opacity: 0;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 600px) {
             button {
                 font-size: 18px;
                 padding: 12px 25px;
+            }
+
+            #message {
+                font-size: 18px;
+                padding: 15px;
             }
         }
     </style>
@@ -69,27 +72,15 @@
 <body>
 
     <div class="container">
-        <button onclick="showBalloons()">Click Me</button>
+        <button onclick="showMessage()">Click Me</button>
+        <div id="message">Jana is the perfect girl, pretty, smart, and kind, and we all appreciate you for being you, Jana🥰</div>
     </div>
 
     <script>
-        function showBalloons() {
-            for (let i = 0; i < 10; i++) {
-                let balloon = document.createElement("div");
-                balloon.classList.add("balloon");
-                balloon.innerText = "Jana is the prettiest and funniest girl. thank you for being you!";
-                document.body.appendChild(balloon);
-
-                let x = Math.random() * (window.innerWidth - 200);
-                let y = window.innerHeight - 50;
-                let scale = Math.random() * 0.7 + 0.5;
-
-                balloon.style.left = `${x}px`;
-                balloon.style.top = `${y}px`;
-                balloon.style.transform = `scale(${scale})`;
-
-                setTimeout(() => balloon.remove(), 3000);
-            }
+        function showMessage() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            message.style.opacity = '1';
         }
     </script>
 
